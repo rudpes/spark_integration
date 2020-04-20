@@ -49,3 +49,17 @@ for cont in range(0, 110, 20):
         .withColumn('perc_of_count_total', (F.col('cnt_per_group') / slice_df.count()) * 100) \
         .sort("hero_name") \
         .show(slice_df.count(), truncate=False)
+
+    removed_cols = ['matchId',
+                    'player_slot',
+                    'patch',
+                    'gold_earned',
+                    'xp_earned',
+                    'gold_spent',
+                    #                'match_total_duration',
+                    'hero_damage',
+                    'hero_healing',
+                    'duration_percentage'
+                    ]
+
+    slice_df = slice_df.drop(*removed_cols)

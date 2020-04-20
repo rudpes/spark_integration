@@ -24,14 +24,7 @@ output_folder = 'C:/Users/Spark/outputs/'
 
 spark = spark_interface.get_spark_session()
 
-cont = 80
-increment = 10
-base_name = "slice_"
-
-start = cont / 100
-end = (cont + 10) / 100
-slice_name = base_name + str(cont) + "_" + str(cont + increment)
-slice_df = spark.sql("SELECT * FROM " + slice_name + ' WHERE match_total_duration > 1200')
+slice_df = spark_interface
 
 removed_cols = ['matchId',
                 'player_slot',

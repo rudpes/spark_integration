@@ -58,3 +58,7 @@ def resolve_custom_slice(spark, table, start, increment):
     end = (start + increment) / 100
     where_clause = " WHERE duration_percentage > " + str(start) + " AND duration_percentage < " + str(end)
     return spark.sql("SELECT * FROM " + table + where_clause)
+
+
+def get_table(spark, table):
+    return spark.sql("SELECT * FROM " + table + ' WHERE match_total_duration > 1200')

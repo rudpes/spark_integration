@@ -22,11 +22,8 @@ spark = SparkSession \
 
 dfs = []
 
-for df in dfs:
-    finalDF = finalDF.union(df)
-
 for const in constants.tables:
-    dfs.append(spark.sql("SELECT * FROM v2_original_" + const))
+    dfs.append(spark.sql("SELECT * FROM v2_filtered_" + const))
 
 df = reduce(DataFrame.union, dfs)
 print(df.count())

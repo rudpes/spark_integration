@@ -15,7 +15,7 @@ spark = SparkSession \
   .enableHiveSupport() \
   .getOrCreate()
 
-rootdir = 'E:/RP/csv/target - Copy - Copy/'
+rootdir = 'E:/RP/csv/target - Copy - Copy - Copy/'
 
 for subdir in os.listdir(rootdir):
   files = rootdir + subdir + '/'
@@ -26,4 +26,4 @@ for subdir in os.listdir(rootdir):
     .option("delimiter", ";") \
     .load(files + "*.csv")
 
-  matchesDF.write.mode("overwrite").saveAsTable("original_" + subdir)
+  matchesDF.write.mode("overwrite").saveAsTable("v2_original_" + subdir)

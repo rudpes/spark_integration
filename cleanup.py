@@ -24,7 +24,8 @@ for const in constants.tables:
                          "WHERE human_players = 10 "
                          "AND lobby_type IN (0, 2, 5, 6, 7) "
                          "AND game_mode IN (1, 2, 4, 12, 13, 14, 16, 22) "
-                         "AND leaver_status = 0")
+                         "AND leaver_status = 0 "
+                         "AND match_total_duration > 1200")
     removalList = ['human_players', 'lobby_type', 'game_mode', 'leaver_status']
 
     filtered = filtered.drop(*removalList)

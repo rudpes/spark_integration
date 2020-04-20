@@ -20,7 +20,7 @@ spark = SparkSession \
 
 for const in constants.tables:
 
-    filtered = spark.sql("SELECT * FROM original_" + const + " "
+    filtered = spark.sql("SELECT * FROM v2_original_" + const + " "
                          "WHERE human_players = 10 "
                          "AND lobby_type IN (0, 2, 5, 6, 7) "
                          "AND game_mode IN (1, 2, 4, 12, 13, 14, 16, 22) "
@@ -28,4 +28,4 @@ for const in constants.tables:
     removalList = ['human_players', 'lobby_type', 'game_mode', 'leaver_status']
 
     filtered = filtered.drop(*removalList)
-    filtered.write.mode("overwrite").saveAsTable("filtered_" + const)
+    filtered.write.mode("overwrite").saveAsTable("v2_filtered_" + const)

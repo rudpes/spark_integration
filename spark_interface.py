@@ -1,6 +1,10 @@
+import os
+
 from pyspark.sql import SparkSession
 
 warehouseLocation = "C:/Users/Spark/spark-warehouse"
+spark_home = os.environ['SPARK_HOME']
+logFile = spark_home + "\README.md"
 
 
 def get_spark_session():
